@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+
+    height: 100%;
+    background-color: yellow;
+    overflow: hidden;
+}
+body {
+  overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    background-color: #e24767;
+}
+#header {
+    height: 10%;
+    border-bottom: 3px solid red;
+}
+h2, h3 {
+  position: relative;
+  top: 20px;
+    text-align: center;
+}
+
+.LOVE1{
+  position: relative;
+  left: 27.5%;
+  width: 45%;
+  font-size: 30px;text-align: center;
+}
+
+.balsamiq-sans-regular {
+  font-family: "Balsamiq Sans", serif;
+  font-weight: 400;
+  font-style: normal;
+  tab-size: 20px;
+
+}
+
+.balsamiq-sans-bold {
+  font-family: "Balsamiq Sans", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.balsamiq-sans-regular-italic {
+  font-family: "Balsamiq Sans", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.balsamiq-sans-bold-italic {
+  font-family: "Balsamiq Sans", serif;
+  font-weight: 700;
+  font-style: italic;
+}
