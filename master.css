@@ -73,10 +73,10 @@ h2, h3 {
 .photoRIGHT{
   position: relative;
   float:right;
-  margin-left: 20px;
+  margin-left: 20%;
 
   left: 80%;
-  top: -55%;
+  bottom: 55%;
 }
 .pacifico-regular {
   font-family: "Pacifico", serif;
