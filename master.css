@@ -9,7 +9,7 @@ html {
     overflow: hidden;
 }
 body {
-  overflow-y: scroll;
+  overflow-y: auto;
     height: 100%;
     width: 100%;
     background-color: #e24767;
@@ -21,14 +21,17 @@ body {
 h2, h3 {
   position: relative;
   top: 20px;
+  left: 20px;
+  font-size: 50px;
     text-align: center;
+    font
 }
 
 .LOVE1{
   position: relative;
-  left: 27.5%;
+  left: 15%;
   width: 45%;
-  font-size: 30px;text-align: center;
+  font-size: 30px;text-align: center; float: right;
 }
 
 .balsamiq-sans-regular {
@@ -36,6 +39,7 @@ h2, h3 {
   font-weight: 400;
   font-style: normal;
   tab-size: 20px;
+  float: left;
 
 }
 
@@ -55,4 +59,27 @@ h2, h3 {
   font-family: "Balsamiq Sans", serif;
   font-weight: 700;
   font-style: italic;
+}
+.mom{
+  display: grid;
+
+}
+.photoLEFT{
+  position: relative;
+  float:left;
+  margin-left: 20px;
+
+}
+.photoRIGHT{
+  position: relative;
+  float:right;
+  margin-left: 20px;
+
+  left: 80%;
+  top: -55%;
+}
+.pacifico-regular {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
 }
