@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    background-color: yellow;
+    overflow: hidden;
+}
+body {
+    height: 100%;
+    background-color: #ddd;
+}
+#header {
+    height: 10%;
+    border-bottom: 3px solid red;
+}
+h2, h3 {
+    text-align: center;
+}
+#wrap {
+height: 100%;
+position: relative;
+
+}
+.window-banner{
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+}
+.window {
+  width:50%;
+  position:relative;
+  float:left;
+  height:100%;
+
+}
+.pane {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  text-align: right;
+ }
+
+#window1 {
+  width: 40%;
+      border-right:1px solid;
+}
+#window2 {
+  overflow-y:scroll;
+  width: 60%;
+  border-left:1px solid;
+}
+
+.speech {
+  width: 50%;
+  height: 20%;
+  border : 2px;
+  border-style: solid;
+  position: relative;
+  top: 10%; left: 25%;
+  margin-bottom:10px;
+}
+.apply {
+  position:  absolute;
+  left:  25%;
+  width: 40px;
+  height: 30px;
+}

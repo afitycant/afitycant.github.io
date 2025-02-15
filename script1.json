@@ -1,0 +1,126 @@
+/* This is the code for my project codename #LOVESIM
+which is a kind of visual novel engine built 100% in
+JAVASCRIPT (and, well, html and css too, ig)
+creator: Yours trully, afity.
+
+CURRENT VERSION: v0.1.0*/
+
+
+//does some stuff when you load the page
+window.onload = function onStart(){
+  //re-create all of the speechbubbles;
+  reEnter();
+}
+
+//sea of variables. Mostly HTML elements
+let outputTEXT;
+const text = document.getElementById("texto");
+const apply = document.getElementById("btn");
+const textINP = document.querySelector("#textINP");
+const forma = document.getElementById("forma");
+const charINP = document.querySelector("#charINP");
+const outputWNDW = document.getElementById("window2");
+const btnClear = document.getElementById("clear");
+let node = document.createTextNode(outputTEXT);
+
+
+//objects for storing data
+let chars = {};
+let dialogue = {};
+let IDcount = 1;
+let OUTPUTcount = 1;
+
+//construction functions
+function CharacterCreate(name){  //creates a character object inside the CHARS obj
+  this.name = name;
+}
+
+function DialCreate(text, char){ //creates a dialogue the same way as CharacterCreate
+  this.text = text;
+  this.char = char;
+  this.id = ++IDcount;
+}
+
+//makes stuff happen when we submit the form
+forma.addEventListener("submit", submissionDIAL);
+
+//the fuction that handles submission.
+function submissionDIAL(){
+  //call ENTER to create the speechbubble
+  enter();
+
+  //prevent the page from reloading
+  event.preventDefault();
+
+  //clear the forms
+  textINP.value = '';
+  charINP.value = '';
+}
+
+
+
+function enter(char, text){ //creates a speechbubble and stores its data inside the storage
+    //the submit button doen't pass args, so we add them here
+    if (char === undefined){
+      char = charINP.value;
+      dial = textINP.value;
+    }
+
+    //creating new dialogue object inside the main dialogue dictionary
+    dialogue['dial' + IDcount] = new DialCreate(dial, char);
+      //console.log(dialogue['dial' + OUTPUTcount].char + ": " + dialogue['dial' + OUTPUTcount].text);
+
+    //creating the output text used in creating the speechbubble
+    if (dialogue['dial' + OUTPUTcount].char != ""){
+      outputTEXT = dialogue['dial' + OUTPUTcount].char + ": " + dialogue['dial' + OUTPUTcount].text;
+    } else {
+      outputTEXT = "*" + dialogue['dial' + OUTPUTcount].text + "*";
+    }
+
+    //create the speechbubble in HTML
+    let para = document.createElement("p");
+    node = document.createTextNode(outputTEXT);
+    para.appendChild(node);
+    outputWNDW.appendChild(para).classList.add("speech");
+
+    //set names for localStorage keys
+    dialNAME= "dial"+OUTPUTcount;
+    dialCHAR= "char"+OUTPUTcount;
+
+    //store data in localStorage
+    localStorage.setItem(dialNAME, dialogue['dial' + OUTPUTcount].text);
+    localStorage.setItem(dialCHAR, dialogue['dial' + OUTPUTcount].char);
+    localStorage.setItem("outputcount", OUTPUTcount);
+
+    OUTPUTcount++;
+}
+
+function reEnter(){ //is used to re-enter the speechbubbles after realoading the page
+  //set the id's used to create the key name
+  let charID;
+  let dialID;
+
+  //get the OUTPUTcount from storage to use as the ammount of itteraition
+  let i = Number(localStorage.getItem("outputcount"));
+
+  //FOR LOOP to create the speechbubbles from the data in the storage
+  for(let c=1; c<= i;c++){
+    //create key names
+    charID = "char"+c;
+    dialID = "dial"+c;
+
+    //get the speechbubble data from the storage using those keys
+    char = localStorage.getItem(charID);
+    dial = localStorage.getItem(dialID);
+
+    //call the ENTER function using the data we got to re-create all of the speechbubbles
+    enter(char, dial);
+  }
+}
+
+//functionality of the CLEAR button: clears the storage and reloads the page
+btnClear.addEventListener("click", clearBtn);
+function clearBtn(){
+  localStorage.clear();
+  location.reload();
+}
